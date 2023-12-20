@@ -9,10 +9,7 @@ const findAverageOfKContigElements = (list, k) => {
   let currentSum = 0;
   let [left, right] = [0, 0];
   while (right <= list.length - 1) {
-    // sum list values from left position to right position
-
     currentSum += list[right];
-    // if right - left is K the add average to result and move left and right
     const windowSize = right - left + 1;
     if (windowSize === k) {
       const currentAverage = currentSum / k;
