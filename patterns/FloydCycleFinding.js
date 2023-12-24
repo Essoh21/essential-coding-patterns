@@ -24,7 +24,7 @@ const findLengthOfLinkedListCycle = (head) => {
 
 const calculateCycleLength = (slow) => {
   let current = slow;
-  // from slow to slow give the length of the cycle
+  // from slow position  to slow position gives the length of the cycle
   let cylcleLength = 0;
   while (true) {
     current = current.next;
