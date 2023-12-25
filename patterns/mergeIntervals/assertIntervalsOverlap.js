@@ -36,7 +36,7 @@ console.log(
   assertIntervalsOverlap([
     [1, 2],
     [3, 5],
-    [2, 6],
+    [2, 6, 1],
   ]),
   "______expect true"
 );
