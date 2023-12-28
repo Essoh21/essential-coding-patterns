@@ -9,8 +9,8 @@
  */
 
 const findMaxCpuLoad = (list) => {
-  // make sure input is an array
-  if (!Array.isArray(list)) {
+  // make sure input is an array that contains at least one element
+  if (!Array.isArray(list) || list.length < 1) {
     throw new Error("param must be an array");
   }
 
@@ -26,14 +26,42 @@ const findMaxCpuLoad = (list) => {
       }
     });
   }
+
+  // special case (one array)
+  if (list.length === 1) return list[0][2];
+
+  // first sort list
+  list.sort((a, b) => a[0] - b[0]);
+  // store the max value
+  let maxCpuLoad = 0;
+  for (let i = 1; i < list.length; i += 1) {
+    const [previous, current] = [list[i - 1], list[i]];
+    const currentOverlapPrevious = current[0] < previous[1];
+    if (currentOverlapPrevious) {
+      // upadate current and remove previous
+      list[i] = [
+        previous[0],
+        Math.max(previous[1], current[1]),
+        previous[2] + current[2],
+      ];
+      list.splice(i - 1, 1);
+      i -= 1;
+    }
+  }
+  // get the max
+  for (let i = 0; i < list.length; i += 1) {
+    maxCpuLoad = Math.max(maxCpuLoad, list[i][2]);
+  }
+  return maxCpuLoad;
 };
 
 // try
 
 console.log(
   findMaxCpuLoad([
-    [1, 4, 3],
-    [2, 5, 4],
-    [7, 8, 6],
-  ])
+    [2, 7, 9],
+    [1, 4, 10],
+    [8, 13, 15],
+  ]),
+  "expect_______19"
 );
