@@ -53,5 +53,5 @@ function findMissingNumber(listOfNumbers) {
 }
 
 // try
-console.log(findMissingNumber([7, 3, 5, 2, 4, 6, 0, 1]));
+console.log(findMissingNumber([4, 2, 6, 7, 0, 3, 1, 8]));
 //o(n) time complexity and o(1) space complexity

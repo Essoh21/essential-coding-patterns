@@ -26,8 +26,8 @@ const findMissingNumbers = (listOfNumbers) => {
   }
   return missingNumbers; */
 
-  // another method
-  /* create a fix array of the same length filled with o's.*/
+  /* // another method
+  //create a fix array of the same length filled with o's.
   const orderedNumbers = new Array(listOfNumbers.length).fill(0);
 
   // travese origninal list and place values to their corresponding place in the second list
@@ -44,9 +44,37 @@ const findMissingNumbers = (listOfNumbers) => {
     }
   }
   return missingNumbers;
+  // time complexity O(n)
+//space complexity: 0(n)
+  */
+
+  // use cyclic sort
+
+  let i = 0;
+  const missingNumbers = [];
+  while (i < listOfNumbers.length) {
+    const currentValueCorrectIndex = listOfNumbers[i] - 1;
+    const isCurrentValeAtCorrectIndex =
+      listOfNumbers[i] === listOfNumbers[currentValueCorrectIndex];
+    if (!isCurrentValeAtCorrectIndex) {
+      [listOfNumbers[i], listOfNumbers[currentValueCorrectIndex]] = [
+        listOfNumbers[currentValueCorrectIndex],
+        listOfNumbers[i],
+      ];
+    } else {
+      i += 1;
+    }
+  }
+
+  // traverse to find missing numbers
+
+  for (let i = 0; i < listOfNumbers.length; i += 1) {
+    if (listOfNumbers[i] !== i + 1) {
+      missingNumbers.push(i + 1);
+    }
+  }
+  return missingNumbers;
 };
 
 console.log(findMissingNumbers([2, 1, 5, 3, 2, 3, 5]), "missing numbers");
-
-// time complexity O(n)
-//space complexity: 0(n)
+// time complexity o(n) et space complexity o(1)
