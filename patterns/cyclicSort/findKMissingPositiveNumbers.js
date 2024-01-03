@@ -53,4 +53,5 @@ function findKMissingPositiveNumbers(listOfNumbers, k) {
   return missingNumbers;
 }
 
-console.log(findKMissingPositiveNumbers([2, 1, 3, 6, 5], 2));
+console.log(findKMissingPositiveNumbers([1, 1, 3, 2, 5], 2));
+// time o(n) space o(K)
