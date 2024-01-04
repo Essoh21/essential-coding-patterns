@@ -10,51 +10,51 @@
  */
 
 const reverseFromPtoQ = (head, p, q) => {
+  // Check for invalid indices
+  if (p < 1 || q < p) {
+    throw new Error("Invalid indices");
+  }
+
+  // If p and q are the same, or the linked list is empty, no need to reverse
+  if (p === q || !head) {
+    return head;
+  }
+
   let current = head;
-  const [start, end] = [p, q];
+  let previous = null;
+  let next = null;
 
-  if (start === end) return head;
-  if (p > q) throw new Error("must p <= q");
-  // get the head(node) at position p-1;
-  let nodesCount = 1;
-  let startHead = head;
-  while (nodesCount < p && startHead.next !== null) {
-    startHead = startHead.next;
-    nodesCount += 1;
+  // Move to the node at position (p - 1) to set up for reversing
+  for (let i = 1; i < p && current; i++) {
+    previous = current;
+    current = current.next;
   }
 
-  // find node at position q
-  let endHead = startHead;
+  // 'start' is the node before position p, 'tail' is the node at position p
+  const start = previous;
+  let tail = current;
 
-  while (nodesCount < q) {
-    endHead = endHead.next;
-    nodesCount += 1;
+  // Reverse the linked list from position p to q
+  for (let i = p; i <= q && current; i++) {
+    next = current.next;
+    current.next = previous;
+    previous = current;
+    current = next;
   }
 
-  // reverse nodes between p and q
-  let subCurrent = startHead;
-
-  let previous = endHead;
-
-  let j = 1;
-  const numberOfNodeBetweenQAndP = q - p + 1;
-
-  while (j < numberOfNodeBetweenQAndP) {
-    const next = subCurrent.next;
-    subCurrent.next = previous;
-    previous = subCurrent;
-    subCurrent = next;
-    j += 1;
-    console.log(j + "  this part ", previous.printList());
+  // If start is not null, update its 'next' to point to the reversed section
+  // Otherwise, update the head of the linked list
+  if (start) {
+    start.next = previous;
+  } else {
+    head = previous;
   }
-  console.log(j);
-  //console.log(previous.printList(), "previous");
-  // join the reversed part  to original linked list
-  const reverse = startHead;
-  reverse.next = previous;
 
-  // return the linked list
-  return reverse;
+  // Connect the tail of the reversed section to the node at position (q + 1)
+  tail.next = current;
+
+  // Return the head of the modified linked list
+  return head;
 };
 
 class Node {
@@ -79,4 +79,4 @@ head.next.next = new Node(3);
 head.next.next.next = new Node(4);
 head.next.next.next.next = new Node(5);
 console.log(head.printList(), "original");
-console.log(reverseFromPtoQ(head, 2, 4).printList(), "reversed");
+console.log(reverseFromPtoQ(head, 4, 5).printList(), "reversed");
