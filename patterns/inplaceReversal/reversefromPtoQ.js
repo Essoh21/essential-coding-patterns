@@ -31,6 +31,7 @@ const reverseFromPtoQ = (head, p, q) => {
   }
 
   // 'start' is the node before position p, 'tail' is the node at position p
+
   const start = previous;
   let tail = current;
 
@@ -57,7 +58,7 @@ const reverseFromPtoQ = (head, p, q) => {
   return head;
 };
 
-class Node {
+/* class Node {
   constructor(value, next = null) {
     this.value = value;
     this.next = next;
@@ -80,3 +81,6 @@ head.next.next.next = new Node(4);
 head.next.next.next.next = new Node(5);
 console.log(head.printList(), "original");
 console.log(reverseFromPtoQ(head, 4, 5).printList(), "reversed");
+ */
+
+export default reverseFromPtoQ;
