@@ -73,4 +73,4 @@ head.next.next.next.next.next.next.next = new Node(8);
 head.next.next.next.next.next.next.next.next = new Node(9);
 head.next.next.next.next.next.next.next.next.next = new Node(10);
 head.next.next.next.next.next.next.next.next.next.next = new Node(11);
-console.log(reverseAlternatingKElSublist(head, 13).printList(), "reversed");
+console.log(reverseAlternatingKElSublist(head, 4).printList(), "reversed");
