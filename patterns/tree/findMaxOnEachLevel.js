@@ -32,12 +32,12 @@ export default function findMaxOnEachLevel(treeRootNode) {
   return result;
 }
 
-const root = new TreeNode(12);
-root.left = new TreeNode(7);
-root.right = new TreeNode(1);
-root.left.left = new TreeNode(9);
-root.left.right = new TreeNode(2);
-root.right.left = new TreeNode(10);
-root.right.right = new TreeNode(5);
+// const root = new TreeNode(12);
+// root.left = new TreeNode(7);
+// root.right = new TreeNode(1);
+// root.left.left = new TreeNode(9);
+// root.left.right = new TreeNode(2);
+// root.right.left = new TreeNode(10);
+// root.right.right = new TreeNode(5);
 
-console.log(`Max value's for each level are: ${findMaxOnEachLevel(root)}`);
+// console.log(`Max value's for each level are: ${findMaxOnEachLevel(root)}`);
