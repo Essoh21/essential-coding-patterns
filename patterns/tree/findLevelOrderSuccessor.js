@@ -38,7 +38,7 @@ export default function findLevelOrderSuccessor(treeRootNode, givenNode) {
   return null;
 }
 
-const root = new TreeNode(12);
+/* const root = new TreeNode(12);
 root.left = new TreeNode(7);
 root.right = new TreeNode(1);
 root.left.left = new TreeNode(9);
@@ -51,3 +51,4 @@ if (result !== null) console.log(result.value, "first");
 
 result = findLevelOrderSuccessor(root, new TreeNode(9));
 if (result !== null) console.log(result.value, "second");
+ */
