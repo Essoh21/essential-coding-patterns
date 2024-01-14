@@ -21,4 +21,5 @@ export default function findAllSubsets(set) {
   return subsets;
 }
 
-console.log(findAllSubsets([1, 5, 3]), "all subsets");
+// console.log(findAllSubsets([1, 5, 3]), "all subsets");
+//o(2^n) space and time complexity
