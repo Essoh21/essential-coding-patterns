@@ -33,6 +33,6 @@ function generateParenthesis(N) {
   return result;
 }
 
-const N = 4;
+const N = 2;
 const combinations = generateParenthesis(N);
 console.log(combinations);
