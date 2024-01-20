@@ -39,6 +39,19 @@ export default class NumberStream {
     }
   }
 
+  //add clear  function for further usage of the module
+  clear() {
+    this.minHeap.data = [];
+    this.maxHeap.data = [];
+  }
+
+  // add hability to print min and max heap for further usage of the module
+  getMinHeapData() {
+    return this.minHeap.data;
+  }
+  getMaxHeapData() {
+    return this.maxHeap.data;
+  }
   findMedian() {
     if (this.maxHeap.data.length > this.minHeap.data.length) {
       return this.maxHeap.peek();
