@@ -20,8 +20,7 @@ export default function getMedianOfAllKSizedWindows(list, k) {
     for (let i = 0; i < currentWindow.length; i += 1) {
       currentNumberStream.insertNumber(currentWindow[i]);
     }
-    console.log(currentNumberStream.getMaxHeapData(), "maxHeap");
-    console.log(currentNumberStream.getMinHeapData(), "minHeapData");
+
     medians.push(currentNumberStream.findMedian());
     start += 1;
     end = start + k;
@@ -30,7 +29,7 @@ export default function getMedianOfAllKSizedWindows(list, k) {
   return medians;
 }
 
-console.log(getMedianOfAllKSizedWindows([1, 2, -1, 3, 5], 3));
+//console.log(getMedianOfAllKSizedWindows([1, 2, -1, 3, 5], 3));
 
 //time complexity o(N*k*log(N)) N is list length
 // space complexity o(k)
