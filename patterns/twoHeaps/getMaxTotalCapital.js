@@ -49,7 +49,7 @@ function getMaxTotalCapital(projectsCapitals, projectsProfits, capital, n) {
   return capital;
 }
 
-console.log(getMaxTotalCapital([0, 1, 2, 3], [1, 2, 3, 5], 0, 3));
+//console.log(getMaxTotalCapital([0, 1, 2, 3], [1, 2, 3, 5], 0, 3)) expect 8;
 
 // time complexity o(nlogN) where n is the number of projects to select and N the number of projects capitals
 // space complexity o(N)
