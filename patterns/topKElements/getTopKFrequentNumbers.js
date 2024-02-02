@@ -23,6 +23,6 @@ export default function getTopKfrequentNumbers(list, k) {
   return sortedUniqueNumbers.slice(0, k);
 }
 
-/* console.log(
+console.log(
   getTopKfrequentNumbers([0, 2, 1, 0, 3, 5, 1, 11, 12, 11, 1, 12], 2)
-); */
+);
