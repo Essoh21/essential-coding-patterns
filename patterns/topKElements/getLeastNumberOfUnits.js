@@ -58,3 +58,7 @@ console.log(
     2
   )
 );
+
+//time complexity o(n)
+
+//space complexity o(1)
