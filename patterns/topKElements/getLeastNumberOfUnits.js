@@ -38,25 +38,23 @@ const getLeastNumberOfUnits = (tasks, n) => {
   // Find the maximum frequency
   const maxFreq = taskFreq[0];
 
-  // Calculate the number of idle slots
+  // Calculate the max number of idle slots required
   let idleSlots = (maxFreq - 1) * n;
 
   // Traverse tasks and fill in idle slots
+
   for (let i = 1; i < taskFreq.length && idleSlots > 0; i++) {
-    idleSlots -= Math.min(taskFreq[i], maxFreq - 1);
+    idleSlots -= Math.min(taskFreq[i], maxFreq - 1); // ajust it
   }
 
-  idleSlots = Math.max(0, idleSlots);
+  idleSlots = Math.max(0, idleSlots); // replace negatives by 0
 
   // The least number of units of time is the total number of tasks plus idle slots
   return tasks.length + idleSlots;
 };
 
 console.log(
-  getLeastNumberOfUnits(
-    ["A", "A", "A", "A", "A", "A", "B", "C", "D", "E", "F", "G"],
-    2
-  )
+  getLeastNumberOfUnits(["A", "A", "A", "A", "A", "B", "B", "B", "B", "C"], 3) // expect 17
 );
 
 //time complexity o(n)
