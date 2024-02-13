@@ -56,4 +56,4 @@ fStack.pop();
 fStack.pop();
 
 console.log(fStack.stack, "expect [5, 8]"); */
-// o(n) time and space complexity
+// o(n) time and space complexity. n is the number of uniq elements in the stack
